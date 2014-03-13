@@ -1,0 +1,33 @@
+# Python TKINTER GUIDE
+# intro to packing
+# Programmer: Ankna Basu, PG, CPG, Hydrogeologist
+# website: www.coalgeology.com
+
+#import the 'tkinter' module
+import tkinter
+#create a new window
+window = tkinter.Tk()
+#Change title of the window
+window.title("Super-cool window")
+
+#Set the size of the window
+window.geometry("300x300")
+
+#create a label widget called 'lbl'
+lbl = tkinter.Label(window, text="Label")
+#pack (add) the widget into the window
+lbl.pack()
+
+
+#create a text entry widget called 'ent'
+ent = tkinter.Entry(window)
+#create a button widget called btn
+btn = tkinter.Button(window, text="Button")
+ 
+#pack (add) the widgets into the window
+ent.pack()
+btn.pack()
+
+#draw the window, and start the 'application'
+window.mainloop()
+
