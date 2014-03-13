@@ -1,0 +1,66 @@
+# Python TKINTER GUIDE
+# intro to packing
+# Programmer: Ankna Basu, PG, CPG, Hydrogeologist
+# website: www.coalgeology.com
+
+from tkinter import *
+
+class Application(Frame):
+    def sigFig(self):
+        print("1. All non zero digits are significant.")
+        print("2. Interior zeroes are significant.")
+        print("3. Trailing zeros (zeros to the right of a nonzero number) that fall after a decimal point are significant.")
+        print("4. Trailing zeros that fall before a decimal point are significant.")
+        print("5. Leading zeros (zeros to the left of the first nonzero number) are not significant. They only serve to locate the decimal point.")
+        
+    def createWidgets(self):
+        #create a widget
+        self.QUIT = Button(self)
+        self.QUIT["text"] = "QUIT"
+        self.QUIT["fg"]   = "red"
+        self.QUIT["command"] =  self.quit
+
+        self.QUIT.pack({"side": "left"})
+        #create rules button
+        self.rules = Button(self)
+        self.rules["text"] = "Sig Fig Rules"
+        self.rules["command"] = self.sigFig
+
+        self.rules.pack({"side": "left"})
+
+
+       #There are more ways to add buttons. Some examples below:
+        self.blackbutton = Button(root, text="Black", fg="black")
+        self.blackbutton.pack( side = LEFT)
+
+        self.bluebutton = Button(root, text="Blue", fg="blue")
+        self.bluebutton.pack( side = LEFT )
+
+        self.greenbutton = Button(root, text="Brown", fg="brown")
+        self.greenbutton.pack( side = LEFT )
+
+
+        self.redbutton = Button(root, text="Red", fg="red")
+        self.redbutton.pack( side = LEFT)
+
+        #self.label = Label( root, 'Hey!? How are you doing?', relief=RAISED )
+
+
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+        
+
+root = Tk()
+#set canvas geometry
+root.geometry("300x100")
+
+#initiate app
+app = Application(master=root)
+
+#assign app to the main loop
+app.mainloop()
+
+#Destroy root
+root.destroy()
