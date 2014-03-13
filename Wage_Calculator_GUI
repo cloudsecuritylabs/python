@@ -1,0 +1,53 @@
+#Python 3
+#Programmer: Ankan Basu, PG, CPG, Hydrogeologist
+#GUI application with tkinter for calculating wages
+
+from tkinter import *
+
+class myApp:
+
+
+    def __init__(self, master):
+        #self.frame=Frame(frame)
+        #frame.grid()
+
+        self.container=Frame(master)
+        self.container.grid()
+        #self.container.grid(row=10, column=10)
+
+
+        self.hsalary=StringVar()
+        self.hours=StringVar()
+
+        self.label1=Label(self.container, text="Welcome to the wage calculator", fg='red').grid(row=0, column=0)
+        self.label2=Label(self.container, text="Enter hourly rate").grid(row=1, column=0)
+        self.label3=Label(self.container, text="Number of hours").grid(row=2, column=0)
+
+
+        self.myhSalary=Entry(self.container, textvariable=self.hsalary).grid(row=1, column=1)
+        self.myHours=Entry(self.container, textvariable=self.hours).grid(row=2, column=1)
+
+        #self.mybutton1=Button(self.container, text='Calculate Wages', command=calculatewages).grid(row=3, column=0)
+        self.mybutton1=Button(self.container, text='Calculate Wages')
+        self.mybutton1.grid(row=3, column=0)
+        self.mybutton1.bind("<Button-1>", self.calculatewages)
+        
+
+    def calculatewages(self, event):
+        try:
+            self.h=float(self.hours.get())
+            self.hs=float(self.hsalary.get())
+            self.salary=self.h*self.hs
+            self.labelresult=Label(self.container, text="Your salary is: $ %.2f" % self.salary).grid(row=3, column=1)
+        except ValueError:
+            pass
+
+
+
+
+myGUI=Tk()
+myGUI.geometry('400x200+500+200')
+myGUI.title('Wages Calculator')
+myapp=myApp(myGUI)
+
+myGUI.mainloop()
